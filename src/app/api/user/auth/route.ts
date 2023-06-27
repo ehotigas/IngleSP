@@ -29,8 +29,8 @@ export const POST = async (
             }
         )
     );
-    console.log(response);
     const loginRes: UserLoginRes = await response.json();
+    console.log(loginRes);
     if (!loginRes) {
         return NextResponse.json(
             null,

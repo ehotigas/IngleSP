@@ -74,3 +74,52 @@ export interface PlacementTest {
     title: string
     multiple_choice_questions: MultipleChoiceQuestion[]
 }
+
+
+export interface ImageQuestionAnswerText {
+    id: number
+    answer_text: string
+    num_id: number  
+}
+
+
+export interface ImageQuestionAnswerImage {
+    id: number
+    image: string
+    num_id: number
+}
+
+
+export interface ImageQuestion {
+    id: number
+    title: string
+    category: QuestionCategory
+    question_text: string
+    answers_image_text: AnswerImageText[]
+    images_questions: ImageQuestionAnswerImage[]
+}
+
+
+export interface FillBlankQuestionAnswer {
+    id: number
+    answer_text: string
+    blank_index: number
+}
+
+
+export interface FillBlankSpaceQuestion {
+    id: number
+    title: string
+    category: QuestionCategory
+    question_text: string
+    answers_fill_blank: FillBlankQuestionAnswer[]
+}
+
+
+export interface TrailTest {
+    id: number
+    title: string
+    multiple_choice_questions: MultipleChoiceQuestion[]
+    image_text_questions: ImageQuestion[]
+    fill_blank_questions: FillblankSpaceQuestion[]
+}
