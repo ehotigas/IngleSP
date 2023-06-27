@@ -1,9 +1,10 @@
 "use client"
 
 import { Container } from "@/components/Container/Container";
+import { NextPage } from "next";
 
 
-const Test = () => {
+const Test: NextPage = () => {
     return (
         <Container>
             

@@ -7,6 +7,7 @@ import { signIn } from "next-auth/react";
 import styles from "./page.module.css";
 import { useState } from "react";
 import Link from "next/link";
+import { NextPage } from "next";
 
 
 interface UserLogin {
@@ -23,7 +24,7 @@ const errorMap = {
     "CredentialsSignin": "Invalid email or password"
 }
 
-const Signin = (
+const Signin: NextPage = (
 
 ) => {
     const router = useRouter();

@@ -1,8 +1,9 @@
 "use client"
 import { Container } from "@/components/Container/Container";
 import { UserCard } from "@/components/Ranking/UserCard";
+import { NextPage } from "next";
 
-const Ranking = () => {
+const Ranking: NextPage = () => {
     return (
         <Container
             style={{

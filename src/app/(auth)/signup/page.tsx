@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { newUser } from "@/types/global";
 import styles from "./page.module.css";
 import { useState } from "react";
+import { NextPage } from "next";
 
 
 const verifyUserFields = (
@@ -21,7 +22,7 @@ const verifyUserFields = (
     return errs;
 }
 
-const SignUp = () => {
+const SignUp: NextPage = () => {
     const router = useRouter();
     const [errs, setErrs] = useState<string[]>([]);
     const [user, setUser] = useState<newUser>(

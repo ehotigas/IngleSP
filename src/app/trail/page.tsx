@@ -2,8 +2,9 @@
 import { Container } from "@/components/Container/Container";
 import { Test } from "./Toolkit/Test";
 import { Connection } from "./Toolkit/Connection";
+import { NextPage } from "next";
 
-const Trail = () => {
+const Trail: NextPage = () => {
     return (
         <Container
             style={{

@@ -7,9 +7,10 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import { User } from "@/types/global";
+import { NextPage } from "next";
 
 
-export const Home = () => {
+export const Home: NextPage = () => {
     const { data: session } = useSession();
     const user: User | undefined = session?.user;
     const router = useRouter();

@@ -2,8 +2,9 @@
 import { Container } from "@/components/Container/Container";
 import { UserCardInfos } from "./Toolkit/UserCardInfos";
 import { UserForm } from "./Toolkit/UserForm";
+import { NextPage } from "next";
 
-const Profile = () => {
+const Profile: NextPage = () => {
     return (
         <Container
             style={{

@@ -5,6 +5,7 @@ import { QuestionContainer } from "@/components/Container/QuestionContainer/Ques
 import { Button } from "@/components/PlacementTest/Button/Button";
 import { MultipleChoice } from "@/components/Question/MultipleChoice/MultipleChoice";
 import { MultipleChoiceAnswer, MultipleChoiceQuestion, PlacementTest as PlacementTestType, QuestionCategory, User } from "@/types/global";
+import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -88,7 +89,7 @@ const calculateScore = (
     return `${score}-${placement.multiple_choice_questions.length}`;
 }
 
-const PlacementTest = () => {
+const PlacementTest: NextPage = () => {
     const ref = useRef<HTMLDivElement>(null);
     const [placementTest, setPlacementTest] = useState<PlacementTestType>();
     const [pageAttributes, setPageAttributes] = useState<PageAttributes>({

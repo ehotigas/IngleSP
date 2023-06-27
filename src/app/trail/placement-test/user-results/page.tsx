@@ -5,11 +5,12 @@ import { QuestionContainer } from "@/components/Container/QuestionContainer/Ques
 import { Button } from "@/components/PlacementTest/Button/Button";
 import { UserCard } from "@/components/Ranking/UserCard";
 import { User } from "@/types/global";
+import { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useRef } from "react";
 
-const PlacementTest = () => {
+const PlacementTest: NextPage = () => {
     const { data: session } = useSession();
     const user: User | undefined = session?.user;
     const router = useRouter();
