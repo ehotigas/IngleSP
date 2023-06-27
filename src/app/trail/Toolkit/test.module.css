@@ -1,0 +1,12 @@
+.test {
+    width: 300px;
+    height: 70px;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px 2px #888888;
+    display: block;
+    float: left;
+}
+
+.test:hover {
+    cursor: pointer!important;
+}

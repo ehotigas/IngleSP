@@ -1,0 +1,12 @@
+.button {
+    float: right;
+    margin: 0;
+    margin-left: 10%;
+    font-weight: bold;
+    color: #051320;
+}
+
+.button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

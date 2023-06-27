@@ -1,0 +1,14 @@
+.dropDown {
+    width: 101%;
+    border: none;
+    border-bottom: solid 2px #6b7e87;
+    background-color: #eceeee;
+    margin-top: 3%;
+    height: 30px;
+}
+
+.dropDown:focus {
+    border: none;
+    border-bottom: solid 2px #76dcc2;
+    outline: none;
+}

@@ -1,0 +1,23 @@
+.container {
+    border: 1px solid #051320;
+    width: 40px;
+    float: right;
+    height: 40px;
+    border-radius: 30px;
+    margin-top: 22px;
+}
+
+.container:hover {
+    cursor: pointer;
+    border: 1px solid #76dcc2;
+}
+
+.icon {
+    font-size: 26px;
+    margin-top: 6px;
+    color: #051320
+}
+
+.icon:hover {
+    color: #76dcc2;
+}
