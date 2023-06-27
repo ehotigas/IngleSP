@@ -45,9 +45,11 @@ export const MultipleChoice = (
                 {
                     question?.answers_multiple?.map(
                         (
-                            answer: MultipleChoiceAnswer
+                            answer: MultipleChoiceAnswer,
+                            index: number
                         ) => <Answer
                             checked={answer.userAnswer}
+                            key={index}
                             text={answer.answer_text}
                             onClick={handleClick(answer.id)}
                         />
