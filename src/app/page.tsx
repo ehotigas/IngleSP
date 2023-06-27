@@ -10,7 +10,7 @@ import { User } from "@/types/global";
 import { NextPage } from "next";
 
 
-export const Home: NextPage = () => {
+const Home: NextPage = () => {
     const { data: session } = useSession();
     const user: User | undefined = session?.user;
     const router = useRouter();
