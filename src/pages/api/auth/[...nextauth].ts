@@ -2,12 +2,14 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { User, UserLoginReq } from "@/types/global";
 import NextAuth from "next-auth"
 
+
+const secret = process.env.NEXTAUTH_SECRET
 export const authOptions = {
     pages: {
         signIn: '/signin',
         signOut: '/signout'
     },
-    secret: process.env.NEXTAUTH_URL,
+    secret: secret,
     providers: [
         CredentialsProvider(
             {
