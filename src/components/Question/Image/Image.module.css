@@ -1,0 +1,17 @@
+.text {
+    font-weight: bold;
+    margin-right: 30px;
+    margin: 0;
+    width: auto;
+    display: inline;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.inputNumber {
+    width: 200px;
+}
+
+.inputNumber:focus {
+    outline: none;
+}

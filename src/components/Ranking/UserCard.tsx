@@ -3,6 +3,7 @@ import { Icon } from "./Toolkit/Icon";
 
 
 interface UserCardProps {
+    key?: React.Key
     score: string
     style?: React.CSSProperties
     username: string
@@ -10,6 +11,7 @@ interface UserCardProps {
 
 export const UserCard = (
     {
+        key,
         score,
         style,
         username
@@ -17,6 +19,7 @@ export const UserCard = (
 ) => {
     return (
         <Container
+            key={key}
             style={{
                 width: "70%",
                 height: "80px",

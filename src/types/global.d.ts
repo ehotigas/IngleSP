@@ -79,13 +79,20 @@ export interface PlacementTest {
 export interface ImageQuestionAnswerText {
     id: number
     answer_text: string
-    num_id: number  
+    num_id: number
 }
 
 
 export interface ImageQuestionAnswerImage {
     id: number
     image: string
+    num_id: number
+    userAnswer: string
+}
+
+export interface AnswerImageText {
+    id: number
+    answer_text: string
     num_id: number
 }
 
@@ -104,6 +111,7 @@ export interface FillBlankQuestionAnswer {
     id: number
     answer_text: string
     blank_index: number
+    userAnswer: string
 }
 
 
@@ -122,4 +130,21 @@ export interface TrailTest {
     multiple_choice_questions: MultipleChoiceQuestion[]
     image_text_questions: ImageQuestion[]
     fill_blank_questions: FillblankSpaceQuestion[]
+}
+
+enum QuestionType {
+    MULTIPLE_CHOICE_QUESTION="multiple_choice",
+    FILL_BLANK_SPACE_QUESTION="fill_blank",
+    IMAGE_QUESTION="image_text"
+}
+
+export interface Question {
+    type: QuestionType
+    question: MultipleChoiceQuestion | FillBlankSpaceQuestion | ImageQuestion
+}
+
+export interface Ranking {
+    position: number
+    user: string
+    score: float
 }

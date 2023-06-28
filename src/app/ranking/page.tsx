@@ -1,9 +1,22 @@
 "use client"
 import { Container } from "@/components/Container/Container";
 import { UserCard } from "@/components/Ranking/UserCard";
+import { useEffect, useState } from "react";
 import { NextPage } from "next";
+import { Ranking } from "@/types/global";
 
 const Ranking: NextPage = () => {
+    const [rankingArray, setRankingArray] = useState<Ranking[]>([]);
+    useEffect(() => {
+        const getPosition = async () => {
+            const req = await Promise.resolve(
+                fetch(`http://localhost:3000/api/ranking/placement-test`)
+            );
+            const { ranking }: { ranking: Ranking[] } = await req.json();
+            setRankingArray(ranking);
+        }
+        getPosition();
+    }, []);
     return (
         <Container
             style={{
@@ -40,36 +53,57 @@ const Ranking: NextPage = () => {
                     Ranking
                 </Container>
             </Container>
-            <UserCard
-                score=""
-                style={{
-                    backgroundColor: "#f19198"
-                }}
-                username=""
-            />
-            <UserCard
-                score=""
-                style={{
-                    marginTop: "10px",
-                    backgroundColor: "#f2c656"
-                }}
-                username=""
-            />
-            <UserCard
-                score=""
-                style={{
-                    marginTop: "10px",
-                    backgroundColor: "#b2e893"
-                }}
-                username=""
-            />
-            <UserCard
-                score=""
-                style={{
-                    marginTop: "10px",
-                }}
-                username=""
-            />
+            {
+                rankingArray.length > 0 &&
+                <UserCard
+                    score={rankingArray[0].score}
+                    style={{
+                        backgroundColor: "#f19198"
+                    }}
+                    username={`1. ${rankingArray[0].user}`}
+                />
+            }
+            {
+                rankingArray.length > 1 &&
+                <UserCard
+                    score={rankingArray[1].score}
+                    style={{
+                        marginTop: "10px",
+                        backgroundColor: "#f2c656"
+                    }}
+                    username={`2. ${rankingArray[1].user}`}
+                />
+            }
+            {
+                rankingArray.length > 2 &&
+                <UserCard
+                    score={rankingArray[2].score}
+                    style={{
+                        marginTop: "10px",
+                        backgroundColor: "#b2e893"
+                    }}
+                    username={`3. ${rankingArray[2].user}`}
+                />
+            }
+            
+            {
+                rankingArray.map(
+                    (rankingPosition: Ranking, index: number) => {
+                        if (index > 2 && index < 9) {
+                            return (
+                                <UserCard
+                                    key={`usercardranking-${index}`}
+                                    score={rankingPosition.score}
+                                    style={{
+                                        marginTop: "10px",
+                                    }}
+                                    username={`${index + 1}. ${rankingPosition.user}`}
+                                />
+                            )
+                        }
+                    }
+                )
+            }
         </Container>
     );
 }
