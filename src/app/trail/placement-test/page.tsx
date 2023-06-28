@@ -191,14 +191,8 @@ const PlacementTest: NextPage = () => {
                     <Button
                         onClick={
                             () => {
-                                console.log(JSON.stringify({
-                                    user: user?.id,
-                                    placement: placementTest.id,
-                                    user_response: getAnswerArray(placementTest),
-                                    time_taken: pageAttributes.seconds
-                                }))
                                 fetch(
-                                    "http://ec2-3-95-171-50.compute-1.amazonaws.com/final-tests/user-result",
+                                    "http://ec2-3-95-171-50.compute-1.amazonaws.com/placement-tests/user-result",
                                     {
                                         method: "POST",
                                         headers: {

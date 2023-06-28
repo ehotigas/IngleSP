@@ -1,8 +1,10 @@
 "use client"
 
 import { Container } from "@/components/Container/Container";
+import { QuestionContainer } from "@/components/Container/QuestionContainer/QuestionContainer";
+import { FillBlankSpaceQuestion, ImageQuestion, MultipleChoiceQuestion, TrailTest } from "@/types/global";
 import { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface PageAttributes {
     seconds: number
@@ -30,16 +32,49 @@ const formatTime = (
 }
 
 const Test: NextPage = () => {
+    const [questionArray, setQuestionArray] = useState<(MultipleChoiceQuestion | ImageQuestion | FillBlankSpaceQuestion)[]>([]);
+    const [trail, setTrail] = useState<TrailTest>();
     const [pageAttributes, setPageAttributes] = useState<PageAttributes>({
         seconds: 0,
         questionId: 0
     });
-    
+
+    const setAttribute = (
+        pageAttribute: keyof PageAttributes,
+        value: typeof pageAttributes[keyof PageAttributes]
+    ) => {
+        setPageAttributes({ ...pageAttributes, [pageAttribute]: value });
+    }
+
+    useEffect(() => {
+        const timeOut = setTimeout(() => {
+            setAttribute('seconds', pageAttributes.seconds + 1);
+        }, 1000);
+
+        return () => clearTimeout(timeOut);
+    }, [pageAttributes]);
+
+    useEffect(() => {
+        const getTrail = async () => {
+            const req = await Promise.resolve(
+                fetch("http://ec2-3-95-171-50.compute-1.amazonaws.com/trails/")
+            );
+            const data: TrailTest[] = await req.json();
+            if (data.length > 0) {
+                setTrail(data[0]);
+                setQuestionArray([...data[0].multiple_choice_questions, ...data[0].image_text_questions, ...data[0].fill_blank_questions]);
+            }
+        }
+        getTrail();
+    }, []);
     
     return (
-        <Container>
-            
-        </Container>
+        <QuestionContainer
+            time={formatTime(pageAttributes.seconds)}
+            title={`Question ${pageAttributes.questionId + 1}`}
+        >
+
+        </QuestionContainer>
     );
 }
 
