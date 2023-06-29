@@ -18,7 +18,7 @@ export const GET = async (
     req: NextRequest
 ) => {
     const res = await Promise.resolve(
-        fetch("hhttp://ec2-3-95-171-50.compute-1.amazonaws.com/placement-tests/get-placement")
+        fetch("http://ec2-3-95-171-50.compute-1.amazonaws.com/placement-tests/get-placement")
     );
     const data = await res.json();
     return NextResponse.json(
