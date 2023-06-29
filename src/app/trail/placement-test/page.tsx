@@ -107,7 +107,7 @@ const PlacementTest: NextPage = () => {
     useEffect(() => {
         const getData = async () => {
             const res = await Promise.resolve(
-                fetch("http://ec2-3-95-171-50.compute-1.amazonaws.com/placement-tests/get-placement")
+                fetch("https://ingle-sp.vercel.app/api/placement-test")
             );
             const data = await res.json();
             setPlacementTest(setQuestions(data[0]));
@@ -192,7 +192,7 @@ const PlacementTest: NextPage = () => {
                         onClick={
                             () => {
                                 fetch(
-                                    "http://ec2-3-95-171-50.compute-1.amazonaws.com/placement-tests/user-result",
+                                    "https://ingle-sp.vercel.app/api/placement-test",
                                     {
                                         method: "POST",
                                         headers: {
