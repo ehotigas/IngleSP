@@ -64,7 +64,7 @@ const SignUp: NextPage = () => {
             }
         );
         fetch(
-            "http://localhost:3000/api/user",
+            "https://ingle-sp.vercel.app/api/user",
             {
                 method: "POST",
                 headers: {
