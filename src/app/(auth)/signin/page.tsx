@@ -82,6 +82,7 @@ const Signin: NextPage = (
         ).catch(
             (error: any) => {
                 console.log(error);
+                console.log(error.message);
                 setPageState(
                     state => ({
                         ...state,
