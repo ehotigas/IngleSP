@@ -190,7 +190,7 @@ const Test: NextPage = () => {
     useEffect(() => {
         const getTrail = async () => {
             const req = await Promise.resolve(
-                fetch("http://ec2-3-95-171-50.compute-1.amazonaws.com/trails/")
+                fetch("https://ingle-sp.vercel.app/api/trail-test")
             );
             const data: TrailTest[] = await req.json();
             if (data.length > 0) {
@@ -352,7 +352,7 @@ const Test: NextPage = () => {
                             () => {
                                 console.log(getAnswerArray(questionArray));
                                 fetch(
-                                    "http://ec2-3-95-171-50.compute-1.amazonaws.com/trails/user-result",
+                                    "https://ingle-sp.vercel.app/api/trail-test",
                                     {
                                         method: "POST",
                                         headers: {
