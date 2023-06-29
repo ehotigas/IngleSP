@@ -28,7 +28,7 @@ export const authOptions = {
                 });
                 const response = await Promise.resolve(
                     fetch(
-                        "http://localhost:3000/api/user/auth",
+                        "https://ingle-sp.vercel.app/api/user/auth",
                         {
                             method: "POST",
                             headers: {
