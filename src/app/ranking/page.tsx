@@ -10,7 +10,7 @@ const Ranking: NextPage = () => {
     useEffect(() => {
         const getPosition = async () => {
             const req = await Promise.resolve(
-                fetch(`http://localhost:3000/api/ranking/placement-test`)
+                fetch(`https://ingle-sp.vercel.app/api/ranking/placement-test`)
             );
             const { ranking }: { ranking: Ranking[] } = await req.json();
             setRankingArray(ranking);
