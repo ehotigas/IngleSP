@@ -88,7 +88,7 @@ export const Image = (
                                     >
                                         <img
                                             key={`image-${index}`}
-                                            src={`http://ec2-3-95-171-50.compute-1.amazonaws.com${image.image}`}
+                                            src={image.image}
                                             width={200}
                                             height={200}
                                             style={{ border: "solid 1px #000", marginTop: "10px" }}
