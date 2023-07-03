@@ -88,7 +88,7 @@ export const Image = (
                                     >
                                         <img
                                             key={`image-${index}`}
-                                            src={image.image}
+                                            src={`data:image/png;base64,${image.image}`}
                                             width={200}
                                             height={200}
                                             style={{ border: "solid 1px #000", marginTop: "10px" }}
